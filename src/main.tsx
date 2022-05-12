@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 `
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <GlobalStyle/>
