@@ -1,9 +1,12 @@
 export default {
-    //Font 
+
+    //Font Color
     primaryColorFont: "#A1A1AA",
     secundaryColorFont: "#27272A" ,
 
-    //Background
+    //Font 
+    
+    //Background Color
     backgroundColor: "#35313D",
     surfaceColor: "#F4F4F5",
 
