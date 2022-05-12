@@ -1,10 +1,13 @@
-import './App.css'
+import React from "react";
+import "./App.css";
+import { Item } from "./Components/Item";
 
 function App() {
-  return (
-    <>
-    </>
-  )
+	return (
+		<>
+			<Item/>
+		</>
+	);
 }
 
-export default App
+export default App;
