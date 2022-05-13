@@ -94,7 +94,7 @@ export const PokemonStatBox = styled.div`
   align-items: center;
 `;
 
-export const PokemonTypeBox = styled.div`
+export const PokemonTypeBox = styled.button`
   background-color: ${colors.fire};
   width: 100px;
   margin-top: 0.5rem;

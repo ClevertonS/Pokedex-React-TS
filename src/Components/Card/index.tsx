@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import {
 	CardContainer, 
 	DescriptionContainer, 
@@ -11,13 +12,28 @@ import {
 	PokemonTypeBox
 } from "./style";
 
+const baseUrl = "https://pokeapi.co/api/v2/pokemon/2";
+
+interface IPokemon {
+	name: string;
+	url: string;
+}
+
 export function Item() {
+
+	useEffect(() => {
+		axios.get(baseUrl)
+			.then(resposta => console.log(resposta))
+			.catch(error => console.log(error));
+	}, []);
+
+
 	return (
 		<>
 			<CardContainer>
 				<DescriptionContainer>
 					<PokemonName>Charmander</PokemonName>
-					<CardPText>Nº004</CardPText>
+					<CardPText>Nº004 </CardPText>
 
 					<PokemonStatsSection>
 						<PokemonStatBox>
