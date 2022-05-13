@@ -12,20 +12,20 @@ import {
 	PokemonTypeBox
 } from "./style";
 
-const baseUrl = "https://pokeapi.co/api/v2/pokemon/2";
+/* const baseUrl = "https://pokeapi.co/api/v2/pokemon/"; */
 
 interface IPokemon {
 	name: string;
 	url: string;
 }
 
-export function Item() {
+export function Card() {
 
-	useEffect(() => {
+	/* useEffect(() => {
 		axios.get(baseUrl)
 			.then(resposta => console.log(resposta))
 			.catch(error => console.log(error));
-	}, []);
+	}, []); */
 
 
 	return (
