@@ -25,8 +25,11 @@ export function Card({ pokemon }: PokemonProps) {
 				console.log(error);
 			});
 	}, []);
-	function dividirPor10(x: (number | undefined)){
+	function DividirPor10(x: (number | undefined)){
 		return (x/10);
+	}
+	function PokemonImage(id: number){
+		return ("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+ id + ".png");
 	}
 	return (
 		<>
@@ -37,11 +40,11 @@ export function Card({ pokemon }: PokemonProps) {
 					<PokemonStatsSection>
 						<PokemonStatBox>
 							<CardH3Text>Height</CardH3Text>
-							<CardPText>{dividirPor10(pokemonStats?.height) + " m"}</CardPText>
+							<CardPText>{DividirPor10(pokemonStats?.height) + " m"}</CardPText>
 						</PokemonStatBox>
 						<PokemonStatBox>
 							<CardH3Text>Weight</CardH3Text>
-							<CardPText>{dividirPor10(pokemonStats?.weight) + " Kg"}</CardPText>
+							<CardPText>{DividirPor10(pokemonStats?.weight) + " Kg"}</CardPText>
 						</PokemonStatBox>
 					</PokemonStatsSection>
 					<PokemonStatBox>
@@ -49,7 +52,7 @@ export function Card({ pokemon }: PokemonProps) {
 						<PokemonTypeBox>Fire</PokemonTypeBox>
 					</PokemonStatBox>
 				</DescriptionContainer>
-				<PokemonImg src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" />
+				<PokemonImg src={PokemonImage(pokemonStats?.id)} />
 			</CardContainer>
 		</>
 	);
