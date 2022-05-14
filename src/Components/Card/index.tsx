@@ -1,48 +1,47 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {
-	CardContainer, 
-	DescriptionContainer, 
-	PokemonImg, 
-	PokemonName, 
-	CardPText, 
-	CardH3Text, 
-	PokemonStatsSection, 
-	PokemonStatBox,
-	PokemonTypeBox
+import { IPokemons } from "../../Interface/IPokemons";
+import { IPokemon } from "../../Interface/IPokemon";
+import { ITypesPokemon } from "../../Interface/ITypes";
+import {CardContainer, DescriptionContainer, PokemonImg, PokemonName, CardPText, CardH3Text, PokemonStatsSection, PokemonStatBox, PokemonTypeBox,
 } from "./style";
 
-/* const baseUrl = "https://pokeapi.co/api/v2/pokemon/"; */
-
-interface IPokemon {
-	name: string;
-	url: string;
+interface PokemonProps {
+  pokemon: IPokemons;
 }
 
-export function Card() {
+export function Card({ pokemon }: PokemonProps) {
+	const pokemonUrl = pokemon.url;
+	
+	const [pokemonStats, setPokemonStats] = useState<IPokemon<ITypesPokemon>>();
 
-	/* useEffect(() => {
-		axios.get(baseUrl)
-			.then(resposta => console.log(resposta))
-			.catch(error => console.log(error));
-	}, []); */
-
-
+	useEffect(() => {
+		axios
+			.get<IPokemon<ITypesPokemon>>(pokemonUrl)
+			.then((resposta) => {
+				setPokemonStats(resposta.data);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}, []);
+	function dividirPor10(x: (number | undefined)){
+		return (x/10);
+	}
 	return (
 		<>
 			<CardContainer>
 				<DescriptionContainer>
-					<PokemonName>Charmander</PokemonName>
-					<CardPText>Nº004 </CardPText>
-
+					<PokemonName>{pokemon.name}</PokemonName>
+					<CardPText>Nº00{pokemonStats?.id} </CardPText>
 					<PokemonStatsSection>
 						<PokemonStatBox>
 							<CardH3Text>Height</CardH3Text>
-							<CardPText>0.6m</CardPText>
+							<CardPText>{dividirPor10(pokemonStats?.height) + " m"}</CardPText>
 						</PokemonStatBox>
 						<PokemonStatBox>
 							<CardH3Text>Weight</CardH3Text>
-							<CardPText>8.5kg</CardPText>
+							<CardPText>{dividirPor10(pokemonStats?.weight) + " Kg"}</CardPText>
 						</PokemonStatBox>
 					</PokemonStatsSection>
 					<PokemonStatBox>

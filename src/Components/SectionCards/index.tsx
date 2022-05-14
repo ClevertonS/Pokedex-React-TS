@@ -22,8 +22,8 @@ export function SectionCards(props: IPokemons) {
 			});}, []);
 	return (
 		<CardsSection>
-			{listPokemon?.map((item, index) => (
-				<Card key={index}/>
+			{listPokemon?.map((item) => (
+				<Card pokemon={item} key={item.url.split("/")[6]}/>
 			))}
 		</CardsSection>
 	);
