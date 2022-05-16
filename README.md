@@ -8,4 +8,4 @@ O Ui do projeto: https://www.figma.com/file/DNJRvfXasqvNdWLeQuelzu/Pokedex-do-ke
 Tecnologias usadas: ReactJs, Axios, Styled-Components.
 
 Acesse e veja como o projeto está ficando :)
-<a href="pokedex-react-ts-blue.vercel.app">pokedex-react-ts-blue.vercel.app</a>
+<a href="http://pokedex-react-ts-blue.vercel.app">pokedex-react-ts-blue.vercel.app</a>
