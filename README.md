@@ -6,3 +6,6 @@ Objetivo: Criar uma pokedex da primeira geração utilizando uma a API PokeApi (
 O Ui do projeto: https://www.figma.com/file/DNJRvfXasqvNdWLeQuelzu/Pokedex-do-kekinho
 
 Tecnologias usadas: ReactJs, Axios, Styled-Components.
+
+Acesse e veja como o projeto está ficando :)
+<a href="http://pokedex-react-ts-blue.vercel.app">pokedex-react-ts-blue.vercel.app</a>
