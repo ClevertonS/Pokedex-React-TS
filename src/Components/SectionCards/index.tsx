@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Card } from "../Card";
-import { CardsSection } from "./styles";
+import { ButtonPage, CardsSection } from "./styles";
 import { IPokemons } from "../../Interface/IPokemons";
 import { IPaginacaoPokemons } from "../../Interface/IPaginacaoPokemons";
 
@@ -22,16 +22,6 @@ export function SectionCards() {
 				console.log(error);
 			});}, []);
 
-	/* const next = () => {
-		axios.get<IPaginacaoPokemons<IPokemons>>(nextPage)
-			.then((resposta) => {
-				setListPokemon(resposta.data.results);
-				setNextPage(resposta.data.next);
-			}).catch((error) => {
-				console.log(error);
-			});};
-	} */
-
 	function Next(){
 		axios.get<IPaginacaoPokemons<IPokemons>>(nextPage).then((resposta) => {
 			setListPokemon(resposta.data.results);
@@ -40,11 +30,13 @@ export function SectionCards() {
 	}
  
 	return (
-		<CardsSection>
-			{listPokemon?.map((item) => (
-				<Card pokemon={item} key={item.url.split("/")[6]}/>
-			))}
-			<button onClick={Next}>Clique Aqui meu parcero</button>
-		</CardsSection>
+		<>
+			<CardsSection>
+				{listPokemon?.map((item) => (
+					<Card pokemon={item} key={item.url.split("/")[6]}/>
+				))}
+			</CardsSection>
+			<ButtonPage onClick={Next} type="button" value={"Clica ai Parcero"}/>
+		</>
 	);
 }
