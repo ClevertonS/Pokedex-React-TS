@@ -9,7 +9,7 @@ export const baseUrl = "https://pokeapi.co/api/v2/";
 
 
 
-export function SectionCards(props: IPokemons) {
+export function SectionCards() {
 	const [nextPage, setNextPage] = useState("");
 	const [listPokemon, setListPokemon] = useState<IPokemons[]>([]);
 
