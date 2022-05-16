@@ -11,12 +11,12 @@ export const colors = {
 	//Types Pokemon Color
 	normal: "#DEDEDE",
 	grass: "#B9EEB2",
-	water: "#C0EBFD",
-	fire: "#FFC08D",
+	water: "#82B4FF",
+	fire: "#FF9F76",
 	bug: "#C0EB68",
 	poison: "#D29AF0",
 	flying: "#B1C9FB",
-	electra: "#F8E489",
+	electric: "#F8E489",
 	ground: "#FDA274",
 	fairy: "#FFADF7",
 	fighting: "#F27A98",
@@ -26,5 +26,6 @@ export const colors = {
 	ice: "#ADF1E7",
 	ghost: "#9592FF",
 	dragon: "#56B1FE",
+	void: "#fff"
 
 };

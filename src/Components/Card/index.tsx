@@ -26,10 +26,10 @@ export function Card({ pokemon }: PokemonProps) {
 
 	const [pokemonStats, setPokemonStats] = useState<IPokemon<ITypesPokemon>>();
 	const [pokemonTypeColor1, setPokemonTypeColor1] = useState<ColorsType>(
-		""
+		"void"
 	);
 	const [pokemonTypeColor2, setPokemonTypeColor2] = useState<ColorsType>(
-		""
+		"void"
 	);
 
 	useEffect(() => {
@@ -55,14 +55,6 @@ export function Card({ pokemon }: PokemonProps) {
 		return (x || 0) / 10;
 	}
 
-	/* {pokemonStats?.types.map((data) => {
-		data.slot
-			? 
-			setPokemonTypeColor1(data.type.name) 
-			: 
-			setPokemonTypeColor2(data.type.name);
-	});}
- */
 	return (
 		<>
 			<CardContainer color1={pokemonTypeColor1} color2={pokemonTypeColor2}>

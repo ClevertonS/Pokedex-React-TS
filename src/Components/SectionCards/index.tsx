@@ -14,17 +14,37 @@ export function SectionCards(props: IPokemons) {
 	const [listPokemon, setListPokemon] = useState<IPokemons[]>([]);
 
 	useEffect(() => {
-		axios.get<IPaginacaoPokemons<IPokemons>>(baseUrl + "pokemon/?offset=0&limit=9")
+		axios.get<IPaginacaoPokemons<IPokemons>>("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=9")
 			.then((resposta) => {
 				setListPokemon(resposta.data.results);
+				setNextPage(resposta.data.next);
 			}).catch((error) => {
 				console.log(error);
 			});}, []);
+
+	/* const next = () => {
+		axios.get<IPaginacaoPokemons<IPokemons>>(nextPage)
+			.then((resposta) => {
+				setListPokemon(resposta.data.results);
+				setNextPage(resposta.data.next);
+			}).catch((error) => {
+				console.log(error);
+			});};
+	} */
+
+	function Next(){
+		axios.get<IPaginacaoPokemons<IPokemons>>(nextPage).then((resposta) => {
+			setListPokemon(resposta.data.results);
+			setNextPage(resposta.data.next);
+		}).catch((error) => {console.log(error);});
+	}
+ 
 	return (
 		<CardsSection>
 			{listPokemon?.map((item) => (
 				<Card pokemon={item} key={item.url.split("/")[6]}/>
 			))}
+			<button onClick={Next}>Clique Aqui meu parcero</button>
 		</CardsSection>
 	);
 }

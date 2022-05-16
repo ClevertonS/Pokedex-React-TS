@@ -1,5 +1,4 @@
 
-import { useState } from "react";
 import styled from "styled-components";
 import { colors }  from "../../Styles/colors";
 import { ColorsType } from "../../Interface/ITypesPokemon";
@@ -13,7 +12,7 @@ interface IColors {
 
 const FontStyleCard = styled.p<IColors>`
   background-color: inherit;
-  background: -webkit-linear-${props => `gradient(60.48deg, ${colors[(props.color1)]} -3.49%, ${colors[(props.color2 === "" ? props.color1 : props.color2)]} 120.66%)`};
+  background: -webkit-linear-${props => `gradient(60.48deg, ${colors[(props.color1)]} -3.49%, ${colors[(props.color2 === "void" ? props.color1 : props.color2)]} 120.66%)`};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
@@ -35,7 +34,7 @@ const SubFontStyleCard = styled.p`
 
 export const CardContainer = styled.div<IColors>`
   align-items: center;
-  background: ${props => `linear-gradient(60.48deg, ${colors[(props.color1)]} -3.49%, ${colors[(props.color2 === "" ? props.color1 : props.color2)]} 120.66%)`};
+  background: ${props => `linear-gradient(60.48deg, ${colors[(props.color1)]} -3.49%, ${colors[(props.color2 === "void" ? props.color1 : props.color2)]} 120.66%)`};
   border-radius: 40px;
   display: flex;
   flex-direction: column;
