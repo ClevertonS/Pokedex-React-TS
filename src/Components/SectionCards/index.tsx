@@ -36,7 +36,7 @@ export function SectionCards() {
 					<Card pokemon={item} key={item.url.split("/")[6]}/>
 				))}
 			</CardsSection>
-			<ButtonPage onClick={Next} type="button" value={"Clica ai Parcero"}/>
+			<ButtonPage onClick={Next} type="button" value={"Aperta aqui"}/>
 		</>
 	);
 }
