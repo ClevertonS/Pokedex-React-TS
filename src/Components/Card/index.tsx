@@ -2,9 +2,20 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { IPokemons } from "../../Interface/IPokemons";
 import { IPokemon } from "../../Interface/IPokemon";
-import { ITypesPokemon } from "../../Interface/ITypes";
-import {CardContainer, DescriptionContainer, PokemonImg, PokemonName, CardPText, CardH3Text, PokemonStatsSection, PokemonStatBox, PokemonTypeBox,
+import { ITypesPokemon } from "../../Interface/ITypesPokemon";
+import {
+	CardContainer,
+	DescriptionContainer,
+	PokemonImg,
+	PokemonName,
+	CardPText,
+	CardH3Text,
+	PokemonStatsSection,
+	PokemonStatBox,
+	SectionPokemonTypes,
 } from "./style";
+import { PokemonType } from "./PokemonType";
+import { ColorsType } from "../../Interface/ITypesPokemon";
 
 interface PokemonProps {
   pokemon: IPokemons;
@@ -12,8 +23,14 @@ interface PokemonProps {
 
 export function Card({ pokemon }: PokemonProps) {
 	const pokemonUrl = pokemon.url;
-	
+
 	const [pokemonStats, setPokemonStats] = useState<IPokemon<ITypesPokemon>>();
+	const [pokemonTypeColor1, setPokemonTypeColor1] = useState<ColorsType>(
+		""
+	);
+	const [pokemonTypeColor2, setPokemonTypeColor2] = useState<ColorsType>(
+		""
+	);
 
 	useEffect(() => {
 		axios
@@ -24,35 +41,58 @@ export function Card({ pokemon }: PokemonProps) {
 			.catch((error) => {
 				console.log(error);
 			});
-	}, []);
-	function DividirPor10(x: (number | undefined)){
-		return (x/10);
+	}, [pokemonStats?.id]);
+
+	useEffect(() => {
+		pokemonStats?.types.map((data) => {
+			data.slot === 1
+				? setPokemonTypeColor1(data.type.name)
+				: setPokemonTypeColor2(data.type.name);
+		});
+	}, [pokemonStats?.id]);
+
+	function DividirPor10(x: number | undefined) {
+		return (x || 0) / 10;
 	}
-	function PokemonImage(id: number){
-		return ("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+ id + ".png");
-	}
+
+	/* {pokemonStats?.types.map((data) => {
+		data.slot
+			? 
+			setPokemonTypeColor1(data.type.name) 
+			: 
+			setPokemonTypeColor2(data.type.name);
+	});}
+ */
 	return (
 		<>
-			<CardContainer>
+			<CardContainer color1={pokemonTypeColor1} color2={pokemonTypeColor2}>
 				<DescriptionContainer>
-					<PokemonName>{pokemon.name}</PokemonName>
+					<PokemonName color1={pokemonTypeColor1} color2={pokemonTypeColor2}>{pokemon.name}</PokemonName>
 					<CardPText>Nº00{pokemonStats?.id} </CardPText>
 					<PokemonStatsSection>
 						<PokemonStatBox>
-							<CardH3Text>Height</CardH3Text>
+							<CardH3Text color1={pokemonTypeColor1} color2={pokemonTypeColor2}>Height</CardH3Text>
 							<CardPText>{DividirPor10(pokemonStats?.height) + " m"}</CardPText>
 						</PokemonStatBox>
 						<PokemonStatBox>
-							<CardH3Text>Weight</CardH3Text>
-							<CardPText>{DividirPor10(pokemonStats?.weight) + " Kg"}</CardPText>
+							<CardH3Text color1={pokemonTypeColor1} color2={pokemonTypeColor2}>Weight</CardH3Text>
+							<CardPText>
+								{DividirPor10(pokemonStats?.weight) + " Kg"}
+							</CardPText>
 						</PokemonStatBox>
 					</PokemonStatsSection>
 					<PokemonStatBox>
-						<CardH3Text>Type</CardH3Text>
-						<PokemonTypeBox>Fire</PokemonTypeBox>
+						<CardH3Text color1={pokemonTypeColor1} color2={pokemonTypeColor2}>Type</CardH3Text>
+						<SectionPokemonTypes>
+							{pokemonStats?.types.map((types) => (
+								<PokemonType pokemonType={types} key={types.slot} />
+							))}
+						</SectionPokemonTypes>
 					</PokemonStatBox>
 				</DescriptionContainer>
-				<PokemonImg src={PokemonImage(pokemonStats?.id)} />
+				<PokemonImg
+					src={pokemonStats?.sprites.other["official-artwork"].front_default}
+				/>
 			</CardContainer>
 		</>
 	);

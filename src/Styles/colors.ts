@@ -1,4 +1,4 @@
-export default {
+export const colors = {
 
 	//Font Color
 	primaryColorFont: "#A1A1AA",

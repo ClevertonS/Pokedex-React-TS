@@ -1,0 +1,2 @@
+( <PokemonTypeBox inputColor={types.type.name} key={types.slot}>{types.type.name}</PokemonTypeBox>
+							)

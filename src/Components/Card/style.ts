@@ -1,11 +1,19 @@
 
+import { useState } from "react";
 import styled from "styled-components";
-import colors from "../../Styles/colors";
+import { colors }  from "../../Styles/colors";
+import { ColorsType } from "../../Interface/ITypesPokemon";
 
 
-const FontStyleCard = styled.p`
+interface IColors {
+  color1: ColorsType
+  color2: ColorsType
+}
+
+
+const FontStyleCard = styled.p<IColors>`
   background-color: inherit;
-  background: -webkit-linear-gradient(60.48deg, #ffc08d -3.49%, #b1c9fb 120.66%);
+  background: -webkit-linear-${props => `gradient(60.48deg, ${colors[(props.color1)]} -3.49%, ${colors[(props.color2 === "" ? props.color1 : props.color2)]} 120.66%)`};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
@@ -25,9 +33,9 @@ const SubFontStyleCard = styled.p`
   font-weight: 400;
 `;
 
-export const CardContainer = styled.div`
+export const CardContainer = styled.div<IColors>`
   align-items: center;
-  background: linear-gradient(60.48deg, #ffc08d -3.49%, #b1c9fb 120.66%);
+  background: ${props => `linear-gradient(60.48deg, ${colors[(props.color1)]} -3.49%, ${colors[(props.color2 === "" ? props.color1 : props.color2)]} 120.66%)`};
   border-radius: 40px;
   display: flex;
   flex-direction: column;
@@ -94,14 +102,9 @@ export const PokemonStatBox = styled.div`
   align-items: center;
 `;
 
-export const PokemonTypeBox = styled.button`
-  background-color: ${colors.fire};
-  width: 100px;
-  margin-top: 0.5rem;
-  padding: 4px 0;
-  border-radius: 5px;
-  box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
-  text-align: center;
-  color: ${colors.surfaceColor};
+export const SectionPokemonTypes = styled.div`
+    background-color: inherit;
+    display: flex;
+    flex-direction: row;
 `;
 
