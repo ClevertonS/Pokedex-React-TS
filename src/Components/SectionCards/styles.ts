@@ -9,7 +9,7 @@ export const CardsSection = styled.section`
 
 export const ButtonPage = styled.input`
     background-color: white;
-    width: 1000px;
+    width: 350px;
     height: 125px;
     color: black;
     font-size: 1rem;
