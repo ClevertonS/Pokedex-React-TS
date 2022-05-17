@@ -10,8 +10,8 @@ export const PaginationBox = styled.div`
 
 export const PaginationButton = styled.button`
     align-items: center;
-    background-color: ${colors.surfaceColor};
-    border-color: ${colors.surfaceColor};
+    background-color: ${colors.tertiaryColorFont};
+    border-color: ${colors.tertiaryColorFont};
     border-radius: 15px;
     border-style: solid;
     border-width: 3px;

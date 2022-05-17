@@ -2,7 +2,8 @@ export const colors = {
 
 	//Font Color
 	primaryColorFont: "#A1A1AA",
-	secundaryColorFont: "#27272A" ,
+	secundaryColorFont: "#27272A",
+	tertiaryColorFont: "#F9B816",
     
 	//Background Color
 	backgroundColor: "#35313D",

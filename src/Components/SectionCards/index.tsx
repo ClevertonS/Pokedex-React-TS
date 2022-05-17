@@ -34,7 +34,7 @@ export function SectionCards() {
 	}
 
 
-	function Previous(){ 
+	function Previous(){
 		axios.get<IPaginacaoPokemons<IPokemons>>(previousPage).then((resposta) => {
 			setListPokemon(resposta.data.results);
 			setNextPage(resposta.data.next);
