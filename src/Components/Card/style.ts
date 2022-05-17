@@ -70,7 +70,7 @@ export const DescriptionContainer = styled.div`
 export const PokemonName = styled(FontStyleCard).attrs({as: "h2"})`
   font-size: 3rem;
   font-weight: 800;
-  line-height: 55px;
+  line-height: 60px;
   margin-top: 2.25rem;
   
 `;
