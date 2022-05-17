@@ -8,11 +8,13 @@ import { colors } from "./Styles/colors";
 
 const GlobalStyle = createGlobalStyle`
   * {
-    background-color: ${colors.backgroundColor}; 
     box-sizing: border-box;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     padding: 0;
     margin: 0;
+  }
+  body {
+    background-color: ${colors.backgroundColor}; 
   }
 `;
 
