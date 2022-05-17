@@ -28,7 +28,8 @@ export const PaginationButton = styled.button`
     }
 
     :disabled {
-        background-color: black;
+        background-color: ${colors.tertiaryColorFont};
+        opacity: 0.5;
         cursor: default;
     }
 `;

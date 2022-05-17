@@ -21,6 +21,7 @@ export function SectionCards() {
 			.then((resposta) => {
 				setListPokemon(resposta.data.results);
 				setNextPage(resposta.data.next);
+				setPreviousPage(resposta.data.previous);
 			}).catch((error) => {
 				console.log(error);
 			});}, []);

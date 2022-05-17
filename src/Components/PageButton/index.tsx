@@ -13,7 +13,7 @@ export function PageButton(props: IPageButton){
 
 	return (
 		<PaginationBox>
-			<PaginationButton onClick={props.changeToPreviousPage} disabled={props.previousPage == null ? true : false} > 
+			<PaginationButton onClick={props.changeToPreviousPage} disabled={props.previousPage === null ? true : false} > 
 				<CaretLeft fill="regular" size={32} color={colors.surfaceColor}/>
 			</PaginationButton>
 			<PaginationButton onClick={props.nextPage} > 
