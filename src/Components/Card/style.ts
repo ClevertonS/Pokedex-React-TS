@@ -33,6 +33,7 @@ const SubFontStyleCard = styled.p`
 `;
 
 export const CardContainer = styled.div<IColors>`
+  box-shadow: 0px -4px 30px 2px rgba(255, 255, 255, 0.25);
   align-items: center;
   background: ${props => `linear-gradient(60.48deg, ${colors[(props.color1)]} -3.49%, ${colors[(props.color2 === "void" ? props.color1 : props.color2)]} 120.66%)`};
   border-radius: 40px;
