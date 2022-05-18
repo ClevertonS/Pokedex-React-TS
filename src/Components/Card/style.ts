@@ -40,7 +40,7 @@ export const CardContainer = styled.div<IColors>`
   display: flex;
   flex-direction: column;
   height: 28.125rem;
-  margin: 20px auto;
+  margin: 20px 5px;
   position: relative;
   width: 21.825rem;
 `;

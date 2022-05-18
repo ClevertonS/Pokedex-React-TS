@@ -6,18 +6,18 @@ import { IPokemons } from "../../Interface/IPokemons";
 import { IPaginacaoPokemons } from "../../Interface/IPaginacaoPokemons";
 import { PageButton } from "../PageButton";
 
-export const baseUrl = "https://pokeapi.co/api/v2/";
+interface IDevice {
+	device: string
+}
 
-
-
-export function SectionCards() {
+export function SectionCards(props: IDevice) {
 	const [nextPage, setNextPage] = useState("");
 	const [previousPage, setPreviousPage] = useState<string>("null");
 	const [listPokemon, setListPokemon] = useState<IPokemons[]>([]);
 
 
 	useEffect(() => {
-		axios.get<IPaginacaoPokemons<IPokemons>>("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=9")
+		axios.get<IPaginacaoPokemons<IPokemons>>(props.device)
 			.then((resposta) => {
 				setListPokemon(resposta.data.results);
 				setNextPage(resposta.data.next);

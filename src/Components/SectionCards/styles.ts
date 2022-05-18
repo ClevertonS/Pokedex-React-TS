@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const CardsSection = styled.section`
     display: flex;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     margin: 0 15%;
