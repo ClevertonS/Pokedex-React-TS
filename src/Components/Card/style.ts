@@ -72,6 +72,9 @@ export const PokemonName = styled(FontStyleCard).attrs({as: "h2"})`
   font-weight: 800;
   line-height: 60px;
   margin-top: 2.25rem;
+  ::first-letter{
+    text-transform: capitalize;
+  }
   
 `;
 
