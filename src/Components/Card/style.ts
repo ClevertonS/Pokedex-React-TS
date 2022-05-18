@@ -19,6 +19,9 @@ const FontStyleCard = styled.p<IColors>`
   -webkit-background-clip: text;
      -moz-background-clip: text;
           background-clip: text;
+  ::first-letter{
+    text-transform: capitalize;
+  }
 `;
 
 const SubFontStyleCard = styled.p`
@@ -30,6 +33,9 @@ const SubFontStyleCard = styled.p`
   color: ${colors.secundaryColorFont};
   font-size: 1rem;
   font-weight: 400;
+  ::first-letter{
+    text-transform: capitalize;
+  }
 `;
 
 export const CardContainer = styled.div<IColors>`
@@ -72,9 +78,6 @@ export const PokemonName = styled(FontStyleCard).attrs({as: "h2"})`
   font-weight: 800;
   line-height: 60px;
   margin-top: 2.25rem;
-  ::first-letter{
-    text-transform: capitalize;
-  }
   
 `;
 

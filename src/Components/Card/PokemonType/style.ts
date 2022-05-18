@@ -19,4 +19,7 @@ export const PokemonTypeBox = styled.div<IColorsType>`
     box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
     text-align: center;
     color: ${colors.surfaceColor};
+    ::first-letter{
+        text-transform: capitalize;
+    }
 `;
