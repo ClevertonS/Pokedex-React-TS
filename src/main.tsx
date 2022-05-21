@@ -4,6 +4,8 @@ import App from "./App";
 import "./index.css";
 import { createGlobalStyle } from "styled-components";
 import { colors } from "./Styles/colors";
+import { Provider } from "react-redux";
+import { store } from "./Store/store";
 
 
 const GlobalStyle = createGlobalStyle`
@@ -21,7 +23,9 @@ const GlobalStyle = createGlobalStyle`
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
-		<GlobalStyle/>
-		<App />
+		<Provider store={store}>
+			<GlobalStyle/>
+			<App />
+		</Provider>
 	</React.StrictMode>
 );

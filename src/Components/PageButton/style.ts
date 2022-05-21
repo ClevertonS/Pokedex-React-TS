@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { colors } from "../../Styles/colors";
 
 
+
 export const PaginationBox = styled.div`
     display: flex;
     width: 100%;
@@ -10,8 +11,8 @@ export const PaginationBox = styled.div`
 
 export const PaginationButton = styled.button`
     align-items: center;
-    background-color: ${colors.tertiaryColorFont};
-    border-color: ${colors.tertiaryColorFont};
+    background-color: ${colors.surfaceColor};
+    border-color: ${colors.surfaceColor};
     border-radius: 15px;
     border-style: solid;
     border-width: 3px;
@@ -28,7 +29,7 @@ export const PaginationButton = styled.button`
     }
 
     :disabled {
-        background-color: ${colors.tertiaryColorFont};
+        background-color: ${colors.surfaceColor};
         opacity: 0.5;
         cursor: default;
     }
