@@ -83,7 +83,7 @@ export function Card({ pokemon }: PokemonProps) {
 					</PokemonStatBox>
 				</DescriptionContainer>
 				<PokemonImg
-					src={pokemonStats?.sprites.other["official-artwork"].front_default}
+					src={pokemonStats?.sprites?.other["official-artwork"]?.front_default}
 				/>
 			</CardContainer>
 		</>
