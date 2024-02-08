@@ -76,7 +76,7 @@ export function Card({ pokemon }: PokemonProps) {
 					<PokemonStatBox>
 						<CardH3Text color1={pokemonTypeColor1} color2={pokemonTypeColor2}>Type</CardH3Text>
 						<SectionPokemonTypes>
-							{pokemonStats?.types.map((types) => (
+							{pokemonStats?.types?.map((types) => (
 								<PokemonType pokemonType={types} key={types.slot} />
 							))}
 						</SectionPokemonTypes>
