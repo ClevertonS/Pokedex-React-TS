@@ -59,7 +59,7 @@ export function Card({ pokemon }: PokemonProps) {
 		<>
 			<CardContainer color1={pokemonTypeColor1} color2={pokemonTypeColor2}>
 				<DescriptionContainer>
-					<PokemonName color1={pokemonTypeColor1} color2={pokemonTypeColor2}>{pokemon.name}</PokemonName>
+					<PokemonName color1={pokemonTypeColor1} color2={pokemonTypeColor2}>{pokemon?.name}</PokemonName>
 					<CardPText>Nº {pokemonStats?.id} </CardPText>
 					<PokemonStatsSection>
 						<PokemonStatBox>
